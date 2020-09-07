@@ -1,0 +1,14 @@
+server:
+  port: 5678
+eureka:
+  client:
+    service-url:
+      defaultZone: http://192.168.0.106:8761/eureka
+sidecar:
+  port: 3000
+  instance:
+    hostname: 192.168.0.100
+  health-uri: http://${sidecar.instance.hostname}:${sidecar.port}/health
+spring:
+  application:
+    name: node-service

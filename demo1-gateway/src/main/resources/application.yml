@@ -1,0 +1,25 @@
+server:
+  port: 8080
+zuul:
+  routes:
+    usercenter:
+      path: /usercenter/**
+      url: http://127.0.0.1:8082
+    membercenter:
+      path: /membercenter/**
+      url: http://127.0.0.1:8081
+    hotelcenter:
+      path: /hotel/**
+      serviceId: node-service
+management:
+  endpoints:
+    web:
+      exposure:
+        include: routes
+spring:
+  application:
+    name: gateway
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
